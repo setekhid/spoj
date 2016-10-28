@@ -54,6 +54,8 @@ knapsack0 _S ((s, v):items) =
 -- this implementation compares with knapsack.go, the only difference is the
 -- status storage, golang implementation using an array, here it's a map and
 -- created at every iterating level
+--
+-- a better implementation in wachovia.hs, using STArray replacing Map
 knapsack1_ _SVs [] = foldl (\_V1 (_, _V2) -> max _V1 _V2) 0 _SVs
 knapsack1_ _SVs (item:items) = knapsack1_ (f item _SVs) items
   where
